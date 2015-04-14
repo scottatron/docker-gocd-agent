@@ -12,9 +12,8 @@ COPY start /start
 # Add go user & work dir
 RUN addgroup -g 75 -S go && \
     adduser -u 75 -S -G go -h /var/go -s /bin/bash -D -g 'Go CD' go && \
-    mkdir -p /var/lib/go-agent && \
+    mkdir -p /var/lib/go-agent/config && \
     chown -R go:go /var/lib/go-agent
-ENV AGENT_STARTUP_ARGS "-Dcruise.console.publish.interval=10 -Xms128m -Xmx256m"
 WORKDIR /var/lib/go-agent
 USER go
 CMD ["/start"]
