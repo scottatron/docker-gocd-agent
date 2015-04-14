@@ -1,7 +1,7 @@
 FROM alpine
 
 # Add base depenendencies
-RUN apk -U add openjdk7-jre-base git make bash
+RUN apk -U add openjdk7-jre-base git make bash openssh-client
 # Get latest Docker binary
 RUN curl -sSL -o /usr/local/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-latest && \
     chmod +x /usr/local/bin/docker
