@@ -1,0 +1,5 @@
+#!/bin/bash
+
+AGENT_KEY=${AGENT_KEY:-123456789abcdef}
+echo "agent.auto.register.key=$AGENT_KEY" > /var/lib/go-agent/config/autoregister.properties
+java -jar /usr/share/go-agent/agent-bootstrapper.jar $GO_SERVER 8153
