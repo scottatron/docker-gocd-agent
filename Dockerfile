@@ -14,6 +14,10 @@ RUN addgroup -g 75 -S go && \
     adduser -u 75 -S -G go -h /var/go -s /bin/bash -D -g 'Go CD' go && \
     mkdir -p /var/lib/go-agent/config && \
     chown -R go:go /var/lib/go-agent
+
+RUN apk add py-pip && \
+    pip install -U docker-compose
+
 WORKDIR /var/lib/go-agent
 USER go
 CMD ["/start"]
